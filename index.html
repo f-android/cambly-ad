@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Cambly</title>
+<style>
+</style>
+</head>
+<body style="width:100%;margin:0 auto">
+<div id="ad">
+<a id="tmspA" data-src="https://ng.virgul.com/ct/61853b52e4b08022ecd87af7?r=153961&scm=https&l=&t=special&cs=timestamp" target="_blank"><div style="width: 100%"><div style="background: #d2012a;width:50%;height: 25px;position: absolute;z-index: -1;"></div><div style="background: #d2012a;width:50%;height: 25px;position: absolute;z-index: -1;right: 0;"></div><div id="camblyDiv" style="width:320px;margin:0 auto;height:25px;"><video width="325" height="25" style="z-index:5" playsinline id="cambly" poster="https://static.virgul.com/theme/mockups/cambly/a.png" ><source type="video/mp4" src="https://rek.izlesene.com/mockups/cambly/320x25.mp4"></source></video><img id="tmspB" data-src="https://ng.virgul.com/tck/imp/61853b52e4b08022ecd87af7?r=153961&scm=https&l=&t=special&cs=timestamp" style="display:none" width="1" height="1"/></div></div></a>
+</div>
+<div id="log">
+</div>
+<script>
+
+var elm=document.getElementById('tmspA');
+elm.setAttribute('href',elm.getAttribute('data-src'));
+elm=document.getElementById('tmspB');
+elm.setAttribute('src',elm.getAttribute('data-src'));
+var lg=location.href.indexOf('test')!=-1;
+try{
+ var plyer=document.getElementById('cambly');
+plyer.volume=0;
+plyer.muted=true;
+plyer.loop=true;
+plyer.defaultMuted=true;
+var prms= plyer.play();
+prms.then(function(){
+ }).catch(function(evrror) {
+	plyer.muted=true;
+if(lg)
+	document.getElementById('log').innerHTML=''+evrror;
+	var prms2= plyer.play();
+	prms2.then(function(){
+	 }).catch(function(evrr2or) {
+	 if(lg)
+	  document.getElementById('log').innerHTML='2nd'+evrr2or;
+	});
+});
+}catch(edd){
+if(lg)
+ document.getElementById('log').innerHTML='err'+edd;
+}
+
+ </script>
+</body>
